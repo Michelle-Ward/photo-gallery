@@ -1,0 +1,27 @@
+{
+  "name": "photo-gallery",
+  "version": "1.0.0",
+  "description": "Photo gallery component for AXlia.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AXlia/photo-gallery.git"
+  },
+  "author": "Adam Brent",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AXlia/photo-gallery/issues"
+  },
+  "homepage": "https://github.com/AXlia/photo-gallery#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "engines": {
+    "node": ">=6.13.0"
+  }
+}
