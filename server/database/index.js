@@ -18,3 +18,5 @@ const testConnection = async () => {
 };
 
 testConnection();
+
+module.exports.db = db;
