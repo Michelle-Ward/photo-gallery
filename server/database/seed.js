@@ -1,14 +1,29 @@
-const { buildProperty, buildPhotoList } = require('./datafaker.js');
+const { buildProperty, buildPhotoList } = require('./dataFaker.js');
+const { db, initializeDB } = require('./index.js');
+const { property, photo } = require('./models.js');
 
 const generateData = () => {
   let data = [];
   for (let i = 0; i < 100; i++) {
     let property = buildProperty();
     property.photos = buildPhotoList(property.apartment, photos = 40);
-    data = data.push(property);
+    data.push(property);
   }
   return data;
 };
+
+const seed = async () => {
+  initializeDB();
+  let data = generateData();
+  try {
+    let records = await property.bulkCreate(data);
+    console.log('Records created!')
+  } catch (err) {
+    console.log('Error creating records:', err);
+  }
+};
+
+seed();
 
 // Generate data
 // Save to json

@@ -3,7 +3,8 @@ const { username, password } = require('./config.js');
 
 const db = new Sequelize('photo_gallery', username, password, {
   host: 'localhost',
-  dialect: 'mysql'
+  dialect: 'mysql',
+  logging: true
 });
 
 const testConnection = async () => {
@@ -13,10 +14,17 @@ const testConnection = async () => {
   } catch (error) {
     console.error('Unable to connect to the database:', error);
   } finally {
-    db.close()
+    db.close();
   }
 };
 
-testConnection();
+const initializeDB = async () => {
+  try {
+    let sync = await db.sync({ alter: true });
+    console.log('db sync syccessful.');
+  } catch (err) {
+    console.log("Error with db sync:", err);
+  }
+}
 
-module.exports.db = db;
+module.exports = { db, testConnection, initializeDB };

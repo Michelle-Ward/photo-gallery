@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes } = require('sequelize');
+const { Sequelize, DataTypes, Deferrable } = require('sequelize');
 const { db } = require('./index.js');
 
 const property = db.define('property', {
@@ -60,7 +60,8 @@ const property = db.define('property', {
     defaultValue: false
   }
 }, {
-  freezeTableName: true
+  freezeTableName: true,
+  timestamps: false
 });
 
 const photo = db.define('photo', {
@@ -70,38 +71,44 @@ const photo = db.define('photo', {
     primaryKey: true,
     autoIncrement: true
   },
-  property_id: {
-    type: DataTypes.SMALLINT,
-    allowNull: false,
-    references: {
-      model: property,
-      key: id,
-      deferrable: Deferrable.NOT // Deferrable.NOT is Default option
-    }
-  },
+  // property_id: {
+  //   type: DataTypes.SMALLINT,
+  //   allowNull: false,
+  //   references: {
+  //     model: property,
+  //     key: 'id',
+  //     deferrable: Deferrable.NOT // Deferrable.NOT is Default option
+  //   }
+  // },
   filename: {
-    filename: DataTypes.TEXT,
+    type: DataTypes.TEXT,
   },
   format: {
-    filename: DataTypes.TEXT,
+    type: DataTypes.TEXT,
   },
   height: {
-    filename: DataTypes.SMALLINT,
+    type: DataTypes.SMALLINT,
   },
   width: {
-    filename: DataTypes.SMALLINT,
+    type: DataTypes.SMALLINT,
   },
   link: {
-    filename: DataTypes.TEXT,
+    type: DataTypes.TEXT,
   },
   thumnail: {
-    filename: DataTypes.TEXT,
+    type: DataTypes.TEXT,
   },
   floorplan: {
-    filename: DataTypes.BOOLEAN,
+    type: DataTypes.BOOLEAN,
   }
 }, {
-  freezeTableName: true
+  freezeTableName: true,
+  timestamps: false
 });
+
+property.hasMany(photo, {
+  foreignKey: 'propertyId'
+});
+photo.belongsTo(property);
 
 module.exports = { property, photo };
