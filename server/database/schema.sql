@@ -47,10 +47,10 @@ CREATE TABLE IF NOT EXISTS `property` (
 CREATE TABLE IF NOT EXISTS `photo` (
   `id` SMALLINT NOT NULL AUTO_INCREMENT,
   `property_id` SMALLINT NOT NULL,
-  `filename` MEDIUMTEXT NOT NULL,
-  `format` MEDIUMTEXT NOT NULL,
-  `height` SMALLINT NOT NULL,
-  `width` SMALLINT NOT NULL,
+  `filename` MEDIUMTEXT NULL,
+  `format` MEDIUMTEXT NULL,
+  `height` SMALLINT NULL,
+  `width` SMALLINT NULL,
   `link` MEDIUMTEXT NULL,
   `thumbnail` MEDIUMTEXT NULL DEFAULT NULL,
   `floorplan` bit NOT NULL DEFAULT 0,
@@ -74,7 +74,7 @@ ALTER TABLE `photo` ADD FOREIGN KEY (property_id) REFERENCES `property` (`id`);
 -- Test Data
 -- ---
 
-INSERT INTO `property` (`address`,`address2`,`neighborhood`,`neighborhood_url`,`rent`,`price`,`beds`,`baths`,`sqft`,`favorite`,`petfriendly`,`new`,`new_construction`,`furnished`) VALUES
-('123 Fake Street','','Hell','$1,000,000','5','3.5','3800','1','1','','','','','');
-INSERT INTO `photo` (`property_id`,`filename`,`format`,`height`,`width`,`link`,`thumbnail`,`floorplan`) VALUES
-('1','photo5.jpg','jpg','640','480','http://photo.com/images/photo5.jpg','http://photo.com/images/photo5_thumb.jpg','');
+-- INSERT INTO `property` (`address`,`address2`,`neighborhood`,`neighborhood_url`,`rent`,`price`,`beds`,`baths`,`sqft`,`favorite`,`petfriendly`,`new`,`new_construction`,`furnished`) VALUES
+-- ('123 Fake Street','','Hell','$1,000,000','5','3.5','3800','1','1','','','','','');
+-- INSERT INTO `photo` (`property_id`,`filename`,`format`,`height`,`width`,`link`,`thumbnail`,`floorplan`) VALUES
+-- ('1','photo5.jpg','jpg','640','480','http://photo.com/images/photo5.jpg','http://photo.com/images/photo5_thumb.jpg','');

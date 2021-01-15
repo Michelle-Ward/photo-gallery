@@ -1,33 +1,34 @@
 var faker = require('faker');
 
-var neighborhoods = [
-  'North Beach',
-  'Chinatown',
-  'SOMA',
-  'Union Square',
-  'Central Market',
-  'Castro',
-  'Noe Valley',
-  'Mission',
-  'Lower Haight',
-  'Hayes Valley',
-  'Upper Haight',
-  'Cole Valley',
-  'Outer Sunset',
-  'Outer Richmond',
-  'Inner Sunset',
-  'Inner Richmond',
-  'Bayview',
-  'Filmore',
-  'Japantown',
-  'Nob Hill',
-  'Marina',
-  'Pacific Heights',
-  'Laurel Heights',
-  'Presidio'
-];
-
 var buildProperty = () => {
+
+  let neighborhoods = [
+    'North Beach',
+    'Chinatown',
+    'SOMA',
+    'Union Square',
+    'Central Market',
+    'Castro',
+    'Noe Valley',
+    'Mission',
+    'Lower Haight',
+    'Hayes Valley',
+    'Upper Haight',
+    'Cole Valley',
+    'Outer Sunset',
+    'Outer Richmond',
+    'Inner Sunset',
+    'Inner Richmond',
+    'Bayview',
+    'Filmore',
+    'Japantown',
+    'Nob Hill',
+    'Marina',
+    'Pacific Heights',
+    'Laurel Heights',
+    'Presidio'
+  ];
+
   let apartment = Boolean(Math.floor(Math.random() * 2));
   let property = {};
   property.new_construction = Boolean(Math.floor(Math.random() * 2));
@@ -49,5 +50,16 @@ var buildProperty = () => {
   return property;
 };
 
-var test = buildProperty();
-console.log(test);
+var buildPhotoList = (apartment, photos = 1, width = 1920, height = 1080) => {
+  let photoList = [];
+  let type;
+  apartment === true ? type = 'apartment' : type = 'house';
+  for (let i = 0; i < photos; i++) {
+    let link = `https://loremflickr.com/${width}/${height}/${type}?number=${i}`;
+    photoList.push(link);
+  }
+  return photoList;
+};
+
+module.exports.buildProperty = buildProperty;
+module.exports.buildPhotoList = buildPhotoList;
