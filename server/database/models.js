@@ -111,4 +111,6 @@ property.hasMany(photo, {
 });
 photo.belongsTo(property);
 
+db.sync();
+
 module.exports = { property, photo };

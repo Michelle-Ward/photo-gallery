@@ -4,6 +4,7 @@
   "description": "Photo gallery component for AXlia.",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon server/index.js",
     "test": "test",
     "seed": "node server/database/seed.js"
   },
