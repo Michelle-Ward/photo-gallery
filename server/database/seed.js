@@ -13,7 +13,7 @@ const generateData = () => {
 };
 
 const seed = async () => {
-  initializeDB();
+  await initializeDB();
   let data = generateData();
   try {
     let records = await property.bulkCreate(data, {returning: true})

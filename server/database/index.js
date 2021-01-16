@@ -20,7 +20,7 @@ const testConnection = async () => {
 
 const initializeDB = async () => {
   try {
-    let sync = await db.sync({ alter: true });
+    let sync = await db.sync({ force: true });
     console.log('db sync syccessful.');
   } catch (err) {
     console.log("Error with db sync:", err);

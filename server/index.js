@@ -7,9 +7,7 @@ app.use(express.static(__dirname + '/../client/public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/properties', function (req, res) {
-  // TODO - your code here!
-  // This route should send back the top 25 repos
+app.get('/properties', (req, res) => {
   get25((err, data) => {
     if (err) {
       res.status(500).send(err);
