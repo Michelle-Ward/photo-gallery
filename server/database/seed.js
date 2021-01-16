@@ -16,8 +16,9 @@ const seed = async () => {
   initializeDB();
   let data = generateData();
   try {
-    let records = await property.bulkCreate(data);
-    console.log('Records created!')
+    let records = await property.bulkCreate(data, {returning: true})
+      .then(res => console.log(res));
+    console.log('Records created!');
   } catch (err) {
     console.log('Error creating records:', err);
   }
