@@ -10,5 +10,19 @@ module.exports = {
         console.log('Error getting properties from db:', err);
         res.status(500).json(err);
       });
+  },
+  patch: (req, res) => {
+    property.update(req.body, {
+      where: {
+        id: req.params.propertyId
+      }
+    })
+      .then(() => {
+        res.status(200);
+      })
+      .catch(err => {
+        console.log('Error updating property in db:', err);
+        res.status(500).json(err);
+      });
   }
 };

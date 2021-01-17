@@ -4,7 +4,7 @@ const { username, password } = require('./config.js');
 const db = new Sequelize('photo_gallery', username, password, {
   host: 'localhost',
   dialect: 'mysql',
-  logging: true
+  logging: console.log
 });
 
 const testConnection = async () => {
