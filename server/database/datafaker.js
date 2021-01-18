@@ -57,7 +57,8 @@ var buildPhotoList = (apartment, photos = 1) => {
   apartment === true ? type = 'apartment' : type = 'house';
   for (let i = 1; i <= photos; i++) {
     let link = `https://abphotos.s3-us-west-2.amazonaws.com/AXlia/image${i}.jpg`;
-    photoList.push({link});
+    let format = link.substring(link.lastIndexOf('.') + 1, link.length);
+    photoList.push({link, format});
   }
   return photoList;
 };
