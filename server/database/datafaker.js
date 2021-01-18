@@ -51,12 +51,12 @@ var buildProperty = () => {
   return property;
 };
 
-var buildPhotoList = (apartment, photos = 1, width = 1920, height = 1080) => {
+var buildPhotoList = (apartment, photos = 1) => {
   let photoList = [];
   let type;
   apartment === true ? type = 'apartment' : type = 'house';
-  for (let i = 0; i < photos; i++) {
-    let link = `https://loremflickr.com/${width}/${height}/${type}?number=${i}`;
+  for (let i = 1; i <= photos; i++) {
+    let link = `https://abphotos.s3-us-west-2.amazonaws.com/AXlia/image${i}.jpg`;
     photoList.push(link);
   }
   return photoList;

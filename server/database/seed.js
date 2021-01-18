@@ -7,6 +7,7 @@ const generateData = () => {
   for (let i = 0; i < 100; i++) {
     let property = buildProperty();
     property.photos = buildPhotoList(property.apartment, photos = 40);
+    console.log(property.photos[0]);
     data.push(property);
   }
   return data;
@@ -34,5 +35,5 @@ seed();
 // Sync db
 // Create property table records for each property
   // Create photo table records for each photo
-    // Upload associated photos to S3
+  // https://abphotos.s3-us-west-2.amazonaws.com/AXlia/image21.jpg
 // Close connection
