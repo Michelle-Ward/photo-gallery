@@ -4,7 +4,7 @@ module.exports = {
   get: (req, res) => {
     photo.findAll({
       where: {
-        id: req.params.propertyId
+        propertyId: req.params.propertyId
       }
     })
       .then(photos => {
