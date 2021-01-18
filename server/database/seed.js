@@ -2,13 +2,17 @@ const { buildProperty, buildPhotoList } = require('./dataFaker.js');
 const { db, initializeDB } = require('./index.js');
 const { property, photo } = require('./models.js');
 
+property.photo = property.hasMany(photo, {
+  foreignKey: 'propertyId'
+});
+photo.property = photo.belongsTo(property);
+
 const generateData = () => {
   let data = [];
   for (let i = 0; i < 100; i++) {
-    let property = buildProperty();
-    property.photos = buildPhotoList(property.apartment, photos = 40);
-    console.log(property.photos[0]);
-    data.push(property);
+    let propertyEntry = buildProperty();
+    propertyEntry.photos = buildPhotoList(propertyEntry.apartment, photos = 40);
+    data.push(propertyEntry);
   }
   return data;
 };
@@ -17,8 +21,12 @@ const seed = async () => {
   await initializeDB();
   let data = generateData();
   try {
-    let records = await property.bulkCreate(data, {returning: true})
-      .then(res => console.log(res));
+    let records = await property.bulkCreate(data, {
+      include: [{
+        association: property.photo,
+      }]
+    })
+    .then(res => {});
     console.log('Records created!');
   } catch (err) {
     console.log('Error creating records:', err);

@@ -95,7 +95,7 @@ const photo = db.define('photo', {
   link: {
     type: DataTypes.TEXT,
   },
-  thumnail: {
+  thumbnail: {
     type: DataTypes.TEXT,
   },
   floorplan: {
@@ -106,10 +106,10 @@ const photo = db.define('photo', {
   timestamps: false
 });
 
-property.hasMany(photo, {
+property.photo = property.hasMany(photo, {
   foreignKey: 'propertyId'
 });
-photo.belongsTo(property);
+photo.property = photo.belongsTo(property);
 
 // db.sync();
 
