@@ -6,7 +6,9 @@
   "scripts": {
     "start": "nodemon server/index.js",
     "test": "jest",
-    "seed": "node server/database/seed.js"
+    "seed": "node server/database/seed.js",
+    "react-dev": "webpack -d eval-source-map --watch",
+    "build": "webpack -d eval-source-map"
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,7 @@
   },
   "homepage": "https://github.com/AXlia/photo-gallery#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "express": "^4.17.1",
     "mysql2": "^2.2.5",
     "react": "^16.14.0",
