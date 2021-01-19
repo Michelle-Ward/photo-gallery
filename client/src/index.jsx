@@ -40,7 +40,7 @@ class App extends React.Component {
       );
     } else {
       return (
-        <div>NO PHOTOS</div>
+        <div></div>
       );
     }
 
