@@ -1,20 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import PropertyPageGallery from './components/PropertyPageGallery.jsx'
+import PropertyGallery from './components/PropertyGallery.jsx'
 import styled from 'styled-components';
 
-const PropertyPageGalleryDiv = styled.div`
+const PropertyGalleryDiv = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
   padding: 8px;
-  position: relative;
+  /* position: relative;
+  margin: auto; */
   height: 500px;
   overflow: hidden;
   min-height: 275px;
   border-radius: 8px;
-  margin: 8px;
   -webkit-box-pack: center;
   transition: 0.45s;
   transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -61,9 +60,9 @@ class App extends React.Component {
   render() {
     if (this.state.properties.length > 0) {
       return (
-        <PropertyPageGalleryDiv>
-          <PropertyPageGallery photos={this.state.photos}/>
-        </PropertyPageGalleryDiv>
+        <PropertyGalleryDiv>
+          <PropertyGallery photos={this.state.photos}/>
+        </PropertyGalleryDiv>
       );
     } else {
       return (
