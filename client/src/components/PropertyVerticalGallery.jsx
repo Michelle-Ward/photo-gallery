@@ -10,8 +10,6 @@ const VerticalGalleryDiv = styled.div`
   justify-content: center;
   margin: 8px;
   padding: 8px;
-  height: 100%;
-  width: auto;
 `
 
 const PropertyVerticalGallery = (props) => (

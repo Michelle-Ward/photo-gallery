@@ -6,27 +6,13 @@ import styled from 'styled-components';
 
 const PropertyGalleryDiv = styled.div`
   display: flex;
-  flex-direction: row;
+  justify-content: center;
   padding: 8px;
-  /* position: relative;
-  margin: auto; */
+  margin: 0 auto;
   height: 500px;
   overflow: hidden;
   min-height: 275px;
-  border-radius: 8px;
   -webkit-box-pack: center;
-  transition: 0.45s;
-  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition-delay: 0s;
-  &:hover {
-    transform-origin: center;
-    transform: scale(1.025);
-    /* transition: transform 0.45s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-    transition-property: transform;
-    transition-duration: 0.45s;
-    transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition-delay: 0s; */
-  }
 `
 
 class App extends React.Component {

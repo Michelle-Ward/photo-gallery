@@ -7,10 +7,22 @@ const GalleryDiv = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-end;
-  /* position: relative; */
-  margin: auto;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 8px;
   overflow: hidden;
+  transition: 0.45s;
+  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition-delay: 0s;
+  &:hover {
+    transform-origin: center;
+    transform: scale(1.025);
+    /* transition: transform 0.45s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+    transition-property: transform;
+    transition-duration: 0.45s;
+    transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition-delay: 0s; */
+  }
 `
 
 
