@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import PropertyGallery from './components/PropertyGallery.jsx'
+import HomeGallery from './components/HomeGallery.jsx'
 import styled from 'styled-components';
 
-const PropertyGalleryDiv = styled.div`
+const HomeGalleryDiv = styled.div`
   display: flex;
   justify-content: center;
-  padding: 8px;
-  margin: 0 auto;
+  border-radius: 8px;
   height: 500px;
   overflow: hidden;
   min-height: 275px;
@@ -36,8 +35,8 @@ class App extends React.Component {
     });
   }
 
-  getPhotos(propertyId) {
-    axios.get(`http://localhost:3000/api/photos/${propertyId}`).then(response => {
+  getPhotos(HomeGalleryId) {
+    axios.get(`http://localhost:3000/api/photos/${HomeGalleryId}`).then(response => {
       console.log(response.data);
       this.setState({photos: response.data});
     });
@@ -46,9 +45,9 @@ class App extends React.Component {
   render() {
     if (this.state.properties.length > 0) {
       return (
-        <PropertyGalleryDiv>
-          <PropertyGallery photos={this.state.photos}/>
-        </PropertyGalleryDiv>
+        <HomeGalleryDiv>
+          <HomeGallery photos={this.state.photos}/>
+        </HomeGalleryDiv>
       );
     } else {
       return (

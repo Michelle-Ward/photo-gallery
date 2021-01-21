@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 
-import PropertyPageGallery from '../client/src/components/PropertyPageGallery.jsx';
-import PropertyPageGalleryImage from '../client/src/components/PropertyPageGalleryImage.jsx';
+import PropertyGallery from '../client/src/components/PropertyGallery.jsx';
+import PropertyGalleryImage from '../client/src/components/PropertyGalleryImage.jsx';
 
 
-const wrapper = mount(<PropertyPageGallery photos={['a', 'b', 'c']}/>);
+const wrapper = mount(<PropertyGallery photos={['a', 'b', 'c']}/>);
 console.log(wrapper.debug());
-expect(wrapper.find(PropertyPageGalleryImage)).toHaveProp('photo');
+expect(wrapper.find(PropertyGalleryImage)).toHaveProp('photo');
 
