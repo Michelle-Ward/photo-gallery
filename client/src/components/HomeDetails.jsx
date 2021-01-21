@@ -3,8 +3,7 @@ import styled from 'styled-components';
 
 const HomeDetailsFields = [
   'address',
-  'rent',
-  'price',
+  'cost',
   'address2',
   'neighborhood',
   'beds',
@@ -34,7 +33,7 @@ const HomeDetails = ({details}) => {
     {HomeDetailsFields.map(field => {
       console.log(details[field]);
       if (details[field] !== null) {
-        return ['address', 'price', 'rent'].includes(field)
+        return ['address', 'cost'].includes(field)
           ? <DetailsBigText>{details[field]}</DetailsBigText>
           : <DetailsText>{details[field]}</DetailsText> ;
       }

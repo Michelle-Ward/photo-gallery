@@ -4,7 +4,6 @@ import styled from 'styled-components';
 // Build as modal
 // Property details at top:
 // Address | Cost | # beds # baths
-// Cost = price || rent
 
 const MultiGalleryDiv = styled.div`
   z-index: -1;

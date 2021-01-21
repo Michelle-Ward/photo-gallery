@@ -61,7 +61,14 @@ class App extends React.Component {
   }
 }
 
-
-
+// badges:
+// cost endswith digit ? FOR RENT : FOR SALE
+// new: NEW
+// new_construction: NEW CONSTRUCTION
+// furnished: FURNISHED
+// petfriendly: PET FRIENDLY
+// icons: hover:Grey
+//  Favorite: favorite === true ? fullHeart : emptyHeart
+//  Share: Share icon
 
 ReactDOM.render(<App />, document.getElementById('app'));

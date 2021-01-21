@@ -41,11 +41,11 @@ var buildProperty = () => {
   if (apartment) {
     property.beds = faker.random.number({min: 1, max: 6});
     property.sqft = faker.random.number({min: 500 * property.beds, max: 2500 * property.beds})
-    property.rent = `$${Math.floor((6 * (property.sqft / 10) * Math.max((property.beds / 4), 2), 8 * (property.sqft / 10) * Math.max((property.beds / 4), 2))).toLocaleString()}/mo`;
+    property.cost = `$${Math.floor((6 * (property.sqft / 10) * Math.max((property.beds / 4), 2), 8 * (property.sqft / 10) * Math.max((property.beds / 4), 2))).toLocaleString()}/mo`;
   } else {
     property.beds = faker.random.number({min: 1, max: 8});
     property.sqft = faker.random.number({min: 450 * property.beds, max: 2500 * property.beds});
-    property.price = `$${Math.floor(faker.commerce.price(350 * property.sqft * property.beds, 1000 * property.sqft * property.beds)).toLocaleString()}`;
+    property.cost = `$${Math.floor(faker.commerce.price(350 * property.sqft * property.beds, 1000 * property.sqft * property.beds)).toLocaleString()}`;
   }
   property.favorite = !Boolean(faker.random.number({min: 0, max: 8}));
   property.baths = Math.max(faker.random.number({min: Math.max(property.beds - 3), max: property.beds + 2}), 1);

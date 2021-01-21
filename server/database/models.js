@@ -21,10 +21,7 @@ const property = db.define('property', {
   neighborhood_url: {
     type: DataTypes.TEXT
   },
-  rent: {
-    type: DataTypes.TEXT
-  },
-  price: {
+  cost: {
     type: DataTypes.TEXT
   },
   beds: {
