@@ -5,12 +5,14 @@ const HomeGalleryHeroImage = styled.img`
   max-width: 100%;
   max-height: 100%;
   border-radius: 8px 0 0 8px;
+  flex-grow: 3;
 `
 const HomeGalleryVertImage = styled.img`
   max-width: 50%;
   max-height: 50%;
   /* padding: 4px 0; */
   border-radius: 0 8px 8px 0;
+  flex-grow: 1;
 `
 
 
