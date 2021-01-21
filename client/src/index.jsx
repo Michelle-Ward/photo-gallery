@@ -35,8 +35,8 @@ class App extends React.Component {
     });
   }
 
-  getPhotos(HomeGalleryId) {
-    axios.get(`http://localhost:3000/api/photos/${HomeGalleryId}`).then(response => {
+  getPhotos(propertyId) {
+    axios.get(`http://localhost:3000/api/photos/${propertyId}`).then(response => {
       console.log(response.data);
       this.setState({photos: response.data});
     });
@@ -54,7 +54,6 @@ class App extends React.Component {
         <div></div>
       );
     }
-
   }
 }
 

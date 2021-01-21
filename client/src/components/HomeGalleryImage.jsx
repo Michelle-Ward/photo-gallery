@@ -7,8 +7,9 @@ const HomeGalleryHeroImage = styled.img`
   border-radius: 8px 0 0 8px;
 `
 const HomeGalleryVertImage = styled.img`
-  max-width: 33%;
-  max-height: 33%;
+  max-width: 50%;
+  max-height: 50%;
+  /* padding: 4px 0; */
   border-radius: 0 8px 8px 0;
 `
 
@@ -16,18 +17,13 @@ const HomeGalleryVertImage = styled.img`
 const HomeGalleryImage = (props) => {
   if (props.hero) {
     return (
-      <div>
-        <HomeGalleryHeroImage src={`${props.photo.link}`}></HomeGalleryHeroImage>
-      </div>
+      <HomeGalleryHeroImage src={`${props.photo.link}`}></HomeGalleryHeroImage>
     );
   } else {
     return (
-      <div>
-        <HomeGalleryVertImage src={`${props.photo.link}`}></HomeGalleryVertImage>
-      </div>
+      <HomeGalleryVertImage src={`${props.photo.link}`}></HomeGalleryVertImage>
     );
   }
-
 };
 
 

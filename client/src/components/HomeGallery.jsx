@@ -7,7 +7,6 @@ const GalleryDiv = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
   overflow: hidden;
   transition: 0.45s;
   transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -26,7 +25,7 @@ const GalleryDiv = styled.div`
 
 
 const HomeGallery = (props) => (
-  <GalleryDiv className="HomeGallery">
+  <GalleryDiv>
     {props.photos.slice(0,1).map(photo =>
       <HomeGalleryImage photo={photo} hero={true}/>
     )}

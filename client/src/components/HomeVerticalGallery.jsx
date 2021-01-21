@@ -9,7 +9,7 @@ const VerticalGalleryDiv = styled.div`
 `
 
 const HomeGalleryVertical = (props) => (
-  <VerticalGalleryDiv className="HomeGalleryVerticalGallery">
+  <VerticalGalleryDiv>
     {props.photos.map(photo =>
       <HomeGalleryImage photo={photo}/>
     )}
