@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import HomeGallery from './components/HomeGallery.jsx'
+import HomeDetails from './components/HomeDetails.jsx'
 import styled from 'styled-components';
 
 const HomeGalleryDiv = styled.div`
@@ -45,9 +46,12 @@ class App extends React.Component {
   render() {
     if (this.state.properties.length > 0) {
       return (
-        <HomeGalleryDiv>
-          <HomeGallery photos={this.state.photos}/>
-        </HomeGalleryDiv>
+        <div>
+          <HomeGalleryDiv>
+            <HomeGallery photos={this.state.photos}/>
+          </HomeGalleryDiv>
+          <HomeDetails details={this.state.properties[0]}/>
+        </div>
       );
     } else {
       return (

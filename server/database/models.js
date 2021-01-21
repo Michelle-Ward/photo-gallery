@@ -36,7 +36,7 @@ const property = db.define('property', {
     allowNull: false
   },
   sqft: {
-    type: DataTypes.SMALLINT,
+    type: DataTypes.TEXT,
     allowNull: false
   },
   favorite: {
