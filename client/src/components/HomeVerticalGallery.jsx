@@ -8,13 +8,32 @@ const VerticalGalleryDiv = styled.div`
   border-radius: 0 8px 8px 0;
   overflow: hidden;
   height: 100%;
+  margin-left: 8px;
 `
+
+const VertImageUpper = styled.img`
+  display: inline-block;
+  max-width: auto;
+  max-height: 50%;
+  object-fit: cover;
+  padding-bottom: 4px;
+  /* margin: 8px; */
+`
+
+const VertImageLower = styled.img`
+  display: inline-block;
+  max-width: auto;
+  max-height: 50%;
+  object-fit: cover;
+  padding-top: 4px;
+  /* margin: 8px; */
+`
+
 
 const HomeGalleryVertical = (props) => (
   <VerticalGalleryDiv>
-    {props.photos.map(photo =>
-      <HomeGalleryImage photo={photo}/>
-    )}
+    <VertImageUpper src={`${props.photos[0].link}`}/>
+    <VertImageLower src={`${props.photos[1].link}`}/>
   </VerticalGalleryDiv>
 );
 

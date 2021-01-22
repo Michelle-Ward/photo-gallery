@@ -45,7 +45,7 @@ class App extends React.Component {
   }
 
   render() {
-    if (this.state.properties.length > 0) {
+    if (this.state.photos.length > 0) {
       return (
         <div>
           <HomeGalleryDiv>
