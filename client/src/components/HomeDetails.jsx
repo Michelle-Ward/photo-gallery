@@ -6,14 +6,14 @@ import { RulerCombined } from '@styled-icons/fa-solid/'
 
 const Bed = styled(HotelBed)`
   color:rgb(134, 144, 153);
-  height: 20px;
+  height: 16px;
   align-self: center;
   margin-left: 8px;
 `
 
 const Bathtub = styled(Bath)`
   color:rgb(134, 144, 153);
-  height: 20px;
+  height: 16px;
   align-self: center;
   margin-left: 8px;
   transform: scaleX(-1);
@@ -21,7 +21,7 @@ const Bathtub = styled(Bath)`
 
 const Ruler = styled(RulerCombined)`
   color:rgb(134, 144, 153);
-  height: 20px;
+  height: 16px;
   align-self: center;
   margin-left: 8px;
 `
@@ -44,7 +44,7 @@ const HomeDetailsContainer = styled.div`
   justify-content: space-between;
   width: 70%;
   margin: auto;
-  font-size: 20px;
+  font-size: 16px;
   color: rgb(59, 65 , 68);
   font-family: 'Cabin', Roboto, Arial, sans-serif;
 `
@@ -55,7 +55,7 @@ const HomeDetailsRow = styled.div`
 `
 
 const DetailsText = styled.p`
-  margin: 8px;
+  margin: 8px 8px 8px 8px;
 `
 
 const DetailsBigText = styled.p`
