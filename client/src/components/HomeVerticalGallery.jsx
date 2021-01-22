@@ -5,7 +5,9 @@ import styled from 'styled-components';
 const VerticalGalleryDiv = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 8px;
+  border-radius: 0 8px 8px 0;
+  overflow: hidden;
+  height: 100%;
 `
 
 const HomeGalleryVertical = (props) => (

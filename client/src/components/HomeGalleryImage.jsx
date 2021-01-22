@@ -2,17 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 
 const HomeGalleryHeroImage = styled.img`
+  display: inline-block;
   max-width: 100%;
   max-height: 100%;
   border-radius: 8px 0 0 8px;
-  flex-grow: 3;
 `
 const HomeGalleryVertImage = styled.img`
-  max-width: 50%;
+  display: inline-block;
+  max-width: auto;
   max-height: 50%;
+  object-fit: cover;
   /* padding: 4px 0; */
   border-radius: 0 8px 8px 0;
-  flex-grow: 1;
+  /* margin: 8px; */
 `
 
 

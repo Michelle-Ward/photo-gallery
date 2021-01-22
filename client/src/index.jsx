@@ -12,7 +12,8 @@ const HomeGalleryDiv = styled.div`
   height: 500px;
   overflow: hidden;
   min-height: 275px;
-  -webkit-box-pack: center;
+  width: 75%;
+  margin:auto;
 `
 
 class App extends React.Component {
@@ -70,5 +71,6 @@ class App extends React.Component {
 // icons: hover:Grey
 //  Favorite: favorite === true ? fullHeart : emptyHeart
 //  Share: Share icon
+//  Images: Image icon with photos.length displayed
 
 ReactDOM.render(<App />, document.getElementById('app'));

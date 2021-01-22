@@ -14,7 +14,7 @@ const GalleryDiv = styled.div`
   border-radius: 8px;
   &:hover {
     transform-origin: center;
-    transform: scale(1.025);
+    transform: scale(1.035);
     /* transition: transform 0.45s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
     transition-HomeGallery: transform;
     transition-duration: 0.45s;
