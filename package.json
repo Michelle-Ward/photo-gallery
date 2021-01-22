@@ -28,6 +28,7 @@
     "react-dom": "^16.14.0",
     "sequelize": "^6.3.5",
     "styled-components": "^5.2.1",
+    "styled-icons": "^10.26.0",
     "webpack": "^5.14.0"
   },
   "engines": {
