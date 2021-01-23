@@ -14,7 +14,8 @@ const HomeGalleryDiv = styled.div`
   overflow: hidden;
   min-height: 275px;
   width: 75%;
-  margin:auto;
+  margin: auto;
+  position: relative;
 `
 
 class App extends React.Component {
@@ -23,7 +24,7 @@ class App extends React.Component {
     this.state = {
       properties: [],
       photos: [],
-      zMultiGallery: -1
+      zMultiGallery: -2
     }
     this.toggleMultiGallery = this.toggleMultiGallery.bind(this);
   }
@@ -60,7 +61,13 @@ class App extends React.Component {
             <HomeGallery photos={this.state.photos}/>
           </HomeGalleryDiv>
           <HomeDetails details={this.state.properties[0]}/>
-          <MultiGallery zIndex={this.state.zMultiGallery}/>
+          <MultiGallery photos={this.state.photos}
+            zIndex={this.state.zMultiGallery}
+            address={this.state.properties[0].address}
+            cost={this.state.properties[0].cost}
+            beds={this.state.properties[0].beds}
+            baths={this.state.properties[0].baths}
+          />
         </div>
       );
     } else {

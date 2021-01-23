@@ -5,20 +5,39 @@ import styled from 'styled-components';
 // Property details at top:
 // Address | Cost | # beds # baths
 
+const MultiGalleryContainer = styled.div`
+  /* border-radius: 8px; */
+  align-items: center;
+  margin: 0;
+  z-index: ${props => props.zIndex};
+`
+
 const MultiGalleryDiv = styled.div`
-  z-index: ${(props => props.zIndex)} || -1;
+  height: 500px;
+  border-radius: 8px;
+  /* overflow: hidden; */
+  border: 5px solid black;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 `
 
 const Row1Div = styled.div`
-
+  display: flex;
+  flex-direction: row;
+  border: 2px solid red;
 `
 
 const Row2Div = styled.div`
-
+  display: flex;
+  flex-direction: row;
+  border: 2px solid green;
 `
 
 const Row3Div = styled.div`
-
+  display: flex;
+  flex-direction: row;
+  border: 2px solid blue;
 `
 
 const rowDivs = [
@@ -29,15 +48,17 @@ const rowDivs = [
 
 const MultiGallery = ({photos, address, cost, beds, baths}) => {
   return (
-  <MultiGalleryDiv>
-    {/*
-    // Divide photos into groups 3
-    let grouped = threeGroups(photos);
-    // Randomly divide some groups of 3 into 1, 2 or 2, 1
-    Build a row from each group using buildRow
-     */}
-  </MultiGalleryDiv>
-)};
+    <MultiGalleryContainer>
+      <MultiGalleryDiv>
+        {
+          threeGroups(photos).map(row =>
+            buildRow(row)
+          )
+        }
+      </MultiGalleryDiv>
+    </MultiGalleryContainer>
+  );
+};
 
 const threeGroups = (photos) => {
   let grouped = [];
@@ -56,14 +77,15 @@ const threeGroups = (photos) => {
 };
 
 const buildRow = (photos) => {
-  const element = rowDivs[photos.length - 1];
+  const Element = rowDivs[photos.length - 1];
   return (
-    <element>
+    <Element>
       {photos.map(photo =>
-        <img>{photo.link}</img>
+        <img src={photo.link}></img>
       )}
-    </element>
-)};
+    </Element>
+  );
+};
 
 
 export default MultiGallery;
