@@ -45,7 +45,9 @@ const threeGroups = (photos) => {
   let lastCount;
   for (let i = 0; i < photos.length; i += count) {
     count = Math.floor(Math.random() * 3) + 1;
-    console.log(count + lastCount);
+    if (count === lastCount) {
+      count = (count % 3) + 1;
+    }
     let group = photos.slice(i, i + count);
     grouped.push(group);
     lastCount = count;
