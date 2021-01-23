@@ -61,7 +61,7 @@ const DetailsText = styled.p`
 const DetailsBigText = styled.p`
   font-size: 28px;
   font-weight: bold;
-  margin: 8px;
+  margin: 8px 8px 0px 8px;
 `
 
 const HomeDetails = ({details}) => {

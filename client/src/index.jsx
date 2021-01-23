@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import HomeGallery from './components/HomeGallery.jsx'
 import HomeDetails from './components/HomeDetails.jsx'
+import MultiGallery from './components/MultiGallery.jsx'
 import styled from 'styled-components';
 
 const HomeGalleryDiv = styled.div`
@@ -21,8 +22,10 @@ class App extends React.Component {
     super(props);
     this.state = {
       properties: [],
-      photos: []
+      photos: [],
+      zMultiGallery: -1
     }
+    this.toggleMultiGallery = this.toggleMultiGallery.bind(this);
   }
 
   componentDidMount() {
@@ -44,14 +47,20 @@ class App extends React.Component {
     });
   }
 
+  toggleMultiGallery() {
+    this.setState({zMultiGallery: this.state.zMultiGallery * -1});
+    console.log(this.state.zMultiGallery);
+  }
+
   render() {
     if (this.state.photos.length > 0) {
       return (
         <div>
-          <HomeGalleryDiv>
+          <HomeGalleryDiv onClick={() => this.toggleMultiGallery()}>
             <HomeGallery photos={this.state.photos}/>
           </HomeGalleryDiv>
           <HomeDetails details={this.state.properties[0]}/>
+          <MultiGallery zAxis={this.state.zMultiGallery}/>
         </div>
       );
     } else {
