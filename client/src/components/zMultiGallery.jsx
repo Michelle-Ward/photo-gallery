@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Close } from '@styled-icons/ionicons-outline/'
 
 // Build as modal
 // Property details at top:
@@ -8,21 +7,15 @@ import { Close } from '@styled-icons/ionicons-outline/'
 
 const MultiGalleryContainer = styled.div`
   /* border-radius: 8px; */
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
   align-items: center;
   width: 75%;
-  border: 3px solid purple;
-  background: white;
+  z-index: ${props => props.zIndex};
 `
 
 const MultiGalleryDiv = styled.div`
   height: 500px;
   border-radius: 8px;
-  overflow: hidden;
+  /* overflow: hidden; */
   border: 5px solid black;
   align-items: center;
   display: flex;
@@ -47,42 +40,23 @@ const Row3Div = styled.div`
   border: 2px solid blue;
 `
 
-const CloseButton = styled(Close)`
-  color: rgb(59, 65, 68);
-  outline: none;
-  box-sizing: border-box;
-  border: none;
-  background: none;
-  text-decoration: none;
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  height: 40px;
-  &:hover {
-    color: rgb(0, 120, 130);
-  }
-`
-
 const rowDivs = [
   Row1Div,
   Row2Div,
   Row3Div
 ]
 
-const MultiGallery = ({closeFunction, multiGalleryOpen, photos, address, cost, beds, baths}) => {
+const MultiGallery = ({photos, address, cost, beds, baths}) => {
   return (
-    multiGalleryOpen === true
-    ? <MultiGalleryContainer>
-        <MultiGalleryDiv>
-          {
-            threeGroups(photos).map(row =>
-              buildRow(row)
-            )
-          }
-        </MultiGalleryDiv>
-        <CloseButton onClick={closeFunction}>X</CloseButton>
-      </MultiGalleryContainer>
-    : null
+    <MultiGalleryContainer>
+      <MultiGalleryDiv>
+        {
+          threeGroups(photos).map(row =>
+            buildRow(row)
+          )
+        }
+      </MultiGalleryDiv>
+    </MultiGalleryContainer>
   );
 };
 

@@ -24,7 +24,7 @@ class App extends React.Component {
     this.state = {
       properties: [],
       photos: [],
-      zMultiGallery: -2
+      MultiGalleryOpen: false
     }
     this.toggleMultiGallery = this.toggleMultiGallery.bind(this);
   }
@@ -49,8 +49,8 @@ class App extends React.Component {
   }
 
   toggleMultiGallery() {
-    this.setState({zMultiGallery: this.state.zMultiGallery * -1});
-    console.log(this.state.zMultiGallery);
+    this.setState({MultiGalleryOpen: !this.state.MultiGalleryOpen});
+    console.log(this.state.MultiGalleryOpen);
   }
 
   render() {
@@ -62,11 +62,12 @@ class App extends React.Component {
           </HomeGalleryDiv>
           <HomeDetails details={this.state.properties[0]}/>
           <MultiGallery photos={this.state.photos}
-            zIndex={this.state.zMultiGallery}
+            multiGalleryOpen={this.state.MultiGalleryOpen}
             address={this.state.properties[0].address}
             cost={this.state.properties[0].cost}
             beds={this.state.properties[0].beds}
             baths={this.state.properties[0].baths}
+            closeFunction={() => this.toggleMultiGallery()}
           />
         </div>
       );
