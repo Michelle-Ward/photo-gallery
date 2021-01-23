@@ -60,7 +60,7 @@ class App extends React.Component {
             <HomeGallery photos={this.state.photos}/>
           </HomeGalleryDiv>
           <HomeDetails details={this.state.properties[0]}/>
-          <MultiGallery zAxis={this.state.zMultiGallery}/>
+          <MultiGallery zIndex={this.state.zMultiGallery}/>
         </div>
       );
     } else {

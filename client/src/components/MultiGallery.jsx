@@ -6,7 +6,7 @@ import styled from 'styled-components';
 // Address | Cost | # beds # baths
 
 const MultiGalleryDiv = styled.div`
-  z-index: ${(props => props.zMultiGallery) || -1};
+  z-index: ${(props => props.zIndex)} || -1;
 `
 
 const Row1Div = styled.div`
