@@ -13,14 +13,21 @@ const MultiGalleryContainer = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   width: 75%;
   border: 3px solid purple;
   background: white;
+  object-fit: cover;
+  margin: 0px;
+  height: calc(100% - 96px);
+  width: calc(100% - 96px);
 `
 
 const MultiGalleryDiv = styled.div`
-  height: 500px;
+  height: calc(100% - 36px);
+  width: 75%;
   border-radius: 8px;
   overflow: hidden;
   border: 5px solid black;
@@ -33,18 +40,49 @@ const Row1Div = styled.div`
   display: flex;
   flex-direction: row;
   border: 2px solid red;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 `
 
 const Row2Div = styled.div`
   display: flex;
   flex-direction: row;
   border: 2px solid green;
+  object-fit: contain;
 `
 
 const Row3Div = styled.div`
   display: flex;
   flex-direction: row;
   border: 2px solid blue;
+  object-fit: contain;
+`
+
+const HomeDetailsRow = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(59, 65 , 68);
+  font-family: 'Cabin', Roboto, Arial, sans-serif;
+  width: 33%;
+`
+
+const DetailsText = styled.p`
+  margin: 8px 8px;
+`
+
+const CostText = styled.p`
+  margin: 8px;
+  &:before {
+    content: "|";
+    margin-right: 12px;
+  }
+  &:after {
+    content: "|";
+    margin-left: 12px;
+  }
 `
 
 const CloseButton = styled(Close)`
@@ -55,8 +93,8 @@ const CloseButton = styled(Close)`
   background: none;
   text-decoration: none;
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 3px;
+  right: 3px;
   height: 40px;
   &:hover {
     color: rgb(0, 120, 130);
@@ -73,6 +111,11 @@ const MultiGallery = ({closeFunction, multiGalleryOpen, photos, address, cost, b
   return (
     multiGalleryOpen === true
     ? <MultiGalleryContainer>
+        <HomeDetailsRow>
+          <DetailsText>{address}</DetailsText>
+          <CostText> {cost} </CostText>
+          <DetailsText>{`${beds} Beds  ${baths} Baths`}</DetailsText>
+        </HomeDetailsRow>
         <MultiGalleryDiv>
           {
             threeGroups(photos).map(row =>
