@@ -17,7 +17,6 @@ const MultiGalleryContainer = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   width: 75%;
-  border: 3px solid purple;
   background: white;
   object-fit: cover;
   margin: 0px;
@@ -29,8 +28,8 @@ const MultiGalleryDiv = styled.div`
   height: calc(100% - 36px);
   width: 75%;
   border-radius: 8px;
-  overflow: hidden;
-  border: 5px solid black;
+  overflow-x: hidden;
+  overflow-y: auto;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -39,24 +38,27 @@ const MultiGalleryDiv = styled.div`
 const Row1Div = styled.div`
   display: flex;
   flex-direction: row;
-  border: 2px solid red;
-  width: 100%;
-  height: 100%;
+  justify-content: center;
+  flex: 1 1 0;
   object-fit: contain;
 `
 
 const Row2Div = styled.div`
   display: flex;
   flex-direction: row;
-  border: 2px solid green;
+  justify-content: center;
   object-fit: contain;
+  height: 50%;
+  width: 50%;
 `
 
 const Row3Div = styled.div`
   display: flex;
   flex-direction: row;
-  border: 2px solid blue;
+  justify-content: center;
   object-fit: contain;
+  height: calc(100% / 3);
+  width: calc(100% / 3);
 `
 
 const HomeDetailsRow = styled.div`
@@ -107,6 +109,12 @@ const rowDivs = [
   Row3Div
 ]
 
+const MultiImage = styled.img`
+  width: 100%;
+  height: 100%;
+  /* margin: 8px; */
+`
+
 const MultiGallery = ({closeFunction, multiGalleryOpen, photos, address, cost, beds, baths}) => {
   return (
     multiGalleryOpen === true
@@ -150,7 +158,7 @@ const buildRow = (photos) => {
   return (
     <Element>
       {photos.map(photo =>
-        <img src={photo.link}></img>
+        <MultiImage src={photo.link}></MultiImage>
       )}
     </Element>
   );
