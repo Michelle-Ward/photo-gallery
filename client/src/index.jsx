@@ -13,6 +13,8 @@ const HomeGalleryDiv = styled.div`
   height: 500px;
   overflow: hidden;
   min-height: 275px;
+  max-width: 100%;
+  max-height: 100%;
 `
 
 const BackgroundDiv = styled.div`

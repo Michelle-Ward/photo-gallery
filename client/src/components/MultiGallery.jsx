@@ -22,19 +22,28 @@ const MultiGalleryContainer = styled.div`
   margin: 0;
   max-width: 1042px;
   height: calc(100% - 96px);
-  width: calc(100% - 96px);
+`
+
+const BackgroundDiv = styled.div`
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.2);
 `
 
 const MultiGalleryDiv = styled.div`
   height: calc(100% - 36px);
-  width: 100%;
+  width: auto;
   border-radius: 8px;
   overflow-x: hidden;
   overflow-y: auto;
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin: 0 8px;
+  margin: 8px;
 `
 
 const Row1Div = styled.div`
@@ -88,6 +97,10 @@ const HomeDetailsRow = styled.div`
   font-weight: bold;
   color: rgb(59, 65 , 68);
   font-family: 'Cabin', Roboto, Arial, sans-serif;
+  margin-top: 4px;
+  margin-left: 4px;
+  margin-right: 4px;
+  border-bottom: 1px solid rgb(205, 209, 212);
 `
 
 const DetailsText = styled.p`
@@ -145,7 +158,8 @@ const MultiImage = styled.img`
 const MultiGallery = ({closeFunction, multiGalleryOpen, photos, address, cost, beds, baths}) => {
   return (
     multiGalleryOpen === true
-    ? <MultiGalleryContainer>
+    ? <BackgroundDiv>
+      <MultiGalleryContainer>
         <HomeDetailsRow>
           <DetailsText>{address}</DetailsText>
           <CostText> {cost} </CostText>
@@ -160,6 +174,7 @@ const MultiGallery = ({closeFunction, multiGalleryOpen, photos, address, cost, b
         </MultiGalleryDiv>
         <CloseButton onClick={closeFunction}>X</CloseButton>
       </MultiGalleryContainer>
+    </BackgroundDiv>
     : null
   );
 };
