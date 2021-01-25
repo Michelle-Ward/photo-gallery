@@ -7,11 +7,14 @@ const GalleryDiv = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: flex-start;
   overflow: hidden;
   transition: 0.45s;
   transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
   transition-delay: 0s;
   border-radius: 8px;
+  width: 100%;
+  height: 100%;
   &:hover {
     transform-origin: center;
     transform: scale(1.035);

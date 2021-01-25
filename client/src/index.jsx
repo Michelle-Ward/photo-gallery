@@ -13,9 +13,14 @@ const HomeGalleryDiv = styled.div`
   height: 500px;
   overflow: hidden;
   min-height: 275px;
-  width: 75%;
+`
+
+const BackgroundDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 992px;
+  max-width: 75%;
   margin: auto;
-  position: relative;
 `
 
 class App extends React.Component {
@@ -50,13 +55,12 @@ class App extends React.Component {
 
   toggleMultiGallery() {
     this.setState({MultiGalleryOpen: !this.state.MultiGalleryOpen});
-    console.log(this.state.MultiGalleryOpen);
   }
 
   render() {
     if (this.state.photos.length > 0) {
       return (
-        <div>
+        <BackgroundDiv>
           <HomeGalleryDiv onClick={() => this.toggleMultiGallery()}>
             <HomeGallery photos={this.state.photos}/>
           </HomeGalleryDiv>
@@ -69,7 +73,7 @@ class App extends React.Component {
             baths={this.state.properties[0].baths}
             closeFunction={() => this.toggleMultiGallery()}
           />
-        </div>
+        </BackgroundDiv>
       );
     } else {
       return (

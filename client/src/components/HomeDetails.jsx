@@ -41,9 +41,9 @@ const largeFields = ['address', 'cost'];
 const HomeDetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: 70%;
-  margin: auto;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 8px;
   font-size: 16px;
   color: rgb(59, 65, 68);
   font-family: 'Cabin', Roboto, Arial, sans-serif;
