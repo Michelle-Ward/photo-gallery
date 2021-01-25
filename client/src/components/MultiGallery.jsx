@@ -31,7 +31,8 @@ const BackgroundDiv = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(3px);
 `
 
 const MultiGalleryDiv = styled.div`
