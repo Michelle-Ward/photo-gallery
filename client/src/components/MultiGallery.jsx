@@ -34,7 +34,7 @@ const MultiGalleryDiv = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin: 8px;
+  margin: 0 8px;
 `
 
 const Row1Div = styled.div`
@@ -83,7 +83,7 @@ const Row3Div = styled.div`
 const HomeDetailsRow = styled.div`
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-end;
   font-size: 14px;
   font-weight: bold;
   color: rgb(59, 65 , 68);
@@ -114,8 +114,8 @@ const CloseButton = styled(Close)`
   background: none;
   text-decoration: none;
   position: absolute;
-  top: 2px;
-  right: 2px;
+  top: 0px;
+  right: 0px;
   height: 40px;
   &:hover {
     color: rgb(0, 120, 130);

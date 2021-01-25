@@ -45,7 +45,7 @@ const HomeDetailsContainer = styled.div`
   width: 70%;
   margin: auto;
   font-size: 16px;
-  color: rgb(59, 65 , 68);
+  color: rgb(59, 65, 68);
   font-family: 'Cabin', Roboto, Arial, sans-serif;
 `
 
@@ -84,17 +84,5 @@ const HomeDetails = ({details}) => {
     </HomeDetailsContainer>
   );
 };
-
-// const HomeDetails = ({details}) => {
-//   return (<HomeDetailsContainer>
-//     {HomeDetailsFields.map(field => {
-//       if (details[field] !== null) {
-//         return largeFields.includes(field)
-//           ? <DetailsBigText>{details[field]}</DetailsBigText>
-//           : <DetailsText>{details[field]}</DetailsText> ;
-//       }
-//     })}
-//   </HomeDetailsContainer>);
-// };
 
 export default HomeDetails;
