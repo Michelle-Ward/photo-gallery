@@ -45,6 +45,11 @@ const Row1Div = styled.div`
   height: 100%;
   width: 100%;
   object-fit: contain;
+  padding: 0 8px 8px 8px;
+  &:last-child {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+  }
 `
 
 const Row2Div = styled.div`
@@ -54,6 +59,11 @@ const Row2Div = styled.div`
   object-fit: contain;
   height: 50%;
   width: 50%;
+  padding: 0 8px 8px 8px;
+  &:last-child {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+  }
 `
 
 const Row3Div = styled.div`
@@ -63,6 +73,11 @@ const Row3Div = styled.div`
   object-fit: contain;
   height: calc(100% / 3);
   width: calc(100% / 3);
+  padding: 0 8px 8px 8px;
+  &:last-child {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+  }
 `
 
 const HomeDetailsRow = styled.div`
@@ -116,6 +131,14 @@ const rowDivs = [
 const MultiImage = styled.img`
   width: 100%;
   height: 100%;
+  margin-left: ${(props) => {
+      if (props.total > 0) {
+        return '8px';
+      } else {
+        return '0px';
+      }
+    }
+  };
   /* margin: 8px; */
 `
 
@@ -158,11 +181,12 @@ const threeGroups = (photos) => {
 };
 
 const buildRow = (photos) => {
-  const Element = rowDivs[photos.length - 1];
+  const rowTotal = photos.length - 1;
+  const Element = rowDivs[rowTotal];
   return (
     <Element>
-      {photos.map(photo =>
-        <MultiImage src={photo.link}></MultiImage>
+      {photos.map((photo, pos) =>
+        <MultiImage src={photo.link} pos={pos} total={rowTotal}></MultiImage>
       )}
     </Element>
   );
