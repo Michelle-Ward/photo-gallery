@@ -7,7 +7,7 @@ import { Close } from '@styled-icons/ionicons-outline/'
 // Address | Cost | # beds # baths
 
 const MultiGalleryContainer = styled.div`
-  /* border-radius: 8px; */
+  border-radius: 8px;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -19,27 +19,31 @@ const MultiGalleryContainer = styled.div`
   width: 75%;
   background: white;
   object-fit: cover;
-  margin: 0px;
+  margin: 0;
+  max-width: 1042px;
   height: calc(100% - 96px);
   width: calc(100% - 96px);
 `
 
 const MultiGalleryDiv = styled.div`
   height: calc(100% - 36px);
-  width: 75%;
+  width: 100%;
   border-radius: 8px;
   overflow-x: hidden;
   overflow-y: auto;
   align-items: center;
   display: flex;
   flex-direction: column;
+  margin: 8px;
 `
 
 const Row1Div = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  flex: 1 1 0;
+  /* flex: 1 1 0; */
+  height: 100%;
+  width: 100%;
   object-fit: contain;
 `
 
@@ -64,11 +68,11 @@ const Row3Div = styled.div`
 const HomeDetailsRow = styled.div`
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   font-size: 14px;
   font-weight: bold;
   color: rgb(59, 65 , 68);
   font-family: 'Cabin', Roboto, Arial, sans-serif;
-  width: 33%;
 `
 
 const DetailsText = styled.p`
@@ -95,8 +99,8 @@ const CloseButton = styled(Close)`
   background: none;
   text-decoration: none;
   position: absolute;
-  top: 3px;
-  right: 3px;
+  top: 2px;
+  right: 2px;
   height: 40px;
   &:hover {
     color: rgb(0, 120, 130);
