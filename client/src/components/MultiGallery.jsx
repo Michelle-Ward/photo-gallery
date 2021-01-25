@@ -36,7 +36,7 @@ const BackgroundDiv = styled.div`
 `
 
 const MultiGalleryDiv = styled.div`
-  height: calc(100% - 36px);
+  height: 100%;
   width: auto;
   border-radius: 8px;
   overflow-x: hidden;
