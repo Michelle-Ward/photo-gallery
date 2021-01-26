@@ -31,13 +31,17 @@ class App extends React.Component {
     this.state = {
       properties: [],
       photos: [],
-      MultiGalleryOpen: false
+      MultiGalleryOpen: false,
+      selectedProperty: null
     }
     this.toggleMultiGallery = this.toggleMultiGallery.bind(this);
   }
 
   componentDidMount() {
-    this.getProperties(() => {this.getPhotos(this.state.properties[0].id)});
+    this.getProperties(() => {
+      this.setState({selectedProperty: this.state.properties[0]});
+      this.getPhotos(this.state.selectedProperty.id);
+    });
   }
 
   getProperties(callback) {
@@ -66,13 +70,13 @@ class App extends React.Component {
           <HomeGalleryDiv onClick={() => this.toggleMultiGallery()}>
             <HomeGallery photos={this.state.photos}/>
           </HomeGalleryDiv>
-          <HomeDetails details={this.state.properties[0]}/>
+          <HomeDetails details={this.state.selectedProperty}/>
           <MultiGallery photos={this.state.photos}
             multiGalleryOpen={this.state.MultiGalleryOpen}
-            address={this.state.properties[0].address}
-            cost={this.state.properties[0].cost}
-            beds={this.state.properties[0].beds}
-            baths={this.state.properties[0].baths}
+            address={this.state.selectedProperty.address}
+            cost={this.state.selectedProperty.cost}
+            beds={this.state.selectedProperty.beds}
+            baths={this.state.selectedProperty.baths}
             closeFunction={() => this.toggleMultiGallery()}
           />
         </BackgroundDiv>
