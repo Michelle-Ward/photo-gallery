@@ -35,6 +35,7 @@ class App extends React.Component {
       selectedProperty: null
     }
     this.toggleMultiGallery = this.toggleMultiGallery.bind(this);
+    this.selectProperty = this.selectProperty.bind(this);
   }
 
   componentDidMount() {
@@ -61,6 +62,11 @@ class App extends React.Component {
 
   toggleMultiGallery() {
     this.setState({MultiGalleryOpen: !this.state.MultiGalleryOpen});
+  }
+
+  selectProperty(property) {
+    this.setState({selectedProperty: property});
+    this.getPhotos(this.state.selectedProperty.id);
   }
 
   render() {
