@@ -96,4 +96,4 @@ class App extends React.Component {
 //  Share: Share icon
 //  Images: Image icon with photos.length displayed
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('photo_gallery'));
