@@ -6,7 +6,9 @@
   "scripts": {
     "start": "nodemon server/index.js",
     "test": "jest",
-    "seed": "node server/database/seed.js"
+    "seed": "node server/database/seed.js",
+    "react-dev": "webpack -d eval-source-map --watch",
+    "build": "webpack -d eval-source-map"
   },
   "repository": {
     "type": "git",
@@ -19,11 +21,14 @@
   },
   "homepage": "https://github.com/AXlia/photo-gallery#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "express": "^4.17.1",
     "mysql2": "^2.2.5",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "sequelize": "^6.3.5",
+    "styled-components": "^5.2.1",
+    "styled-icons": "^10.26.0",
     "webpack": "^5.14.0"
   },
   "engines": {
@@ -35,6 +40,7 @@
     "@babel/preset-react": "^7.12.10",
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
+    "babel-plugin-styled-components": "^1.12.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "eslint": "^7.17.0",

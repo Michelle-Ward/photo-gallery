@@ -2,7 +2,7 @@ const express = require('express');
 const properties = require('./database/controllers/properties.js');
 const photos = require('./database/controllers/photos.js');
 const app = express();
-const port = 3000;
+const port = 3003;
 
 app.use(express.static(__dirname + '/../client/public'));
 
