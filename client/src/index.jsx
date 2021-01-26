@@ -41,7 +41,7 @@ class App extends React.Component {
   }
 
   getProperties(callback) {
-    axios.get('http://localhost:3000/api/properties').then(response => {
+    axios.get('/api/properties').then(response => {
       console.log(response.data);
       this.setState({properties: response.data});
       callback();
@@ -49,7 +49,7 @@ class App extends React.Component {
   }
 
   getPhotos(propertyId) {
-    axios.get(`http://localhost:3000/api/photos/${propertyId}`).then(response => {
+    axios.get(`/api/photos/${propertyId}`).then(response => {
       console.log(response.data);
       this.setState({photos: response.data});
     });
