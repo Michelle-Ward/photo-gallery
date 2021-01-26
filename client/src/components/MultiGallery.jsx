@@ -22,6 +22,7 @@ const MultiGalleryContainer = styled.div`
   margin: 0;
   max-width: 1042px;
   height: calc(100% - 96px);
+  will-change: transform;
 `
 
 const BackgroundDiv = styled.div`
@@ -31,8 +32,8 @@ const BackgroundDiv = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0,0,0,0.5);
-  backdrop-filter: blur(3px);
+  background: rgba(0,0,0,0.7);
+  /* backdrop-filter: blur(10px); */
 `
 
 const MultiGalleryDiv = styled.div`
@@ -153,7 +154,6 @@ const MultiImage = styled.img`
       }
     }
   };
-  /* margin: 8px; */
 `
 
 const MultiGallery = ({closeFunction, multiGalleryOpen, photos, address, cost, beds, baths}) => {
