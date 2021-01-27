@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import HomeGallery from './components/HomeGallery.jsx'
-import HomeDetails from './components/HomeDetails.jsx'
-import MultiGallery from './components/MultiGallery.jsx'
 import styled from 'styled-components';
+import HomeGallery from './components/HomeGallery.jsx';
+import HomeDetails from './components/HomeDetails.jsx';
+import MultiGallery from './components/MultiGallery.jsx';
 
 const HomeGalleryDiv = styled.div`
   display: flex;
@@ -15,7 +15,7 @@ const HomeGalleryDiv = styled.div`
   min-height: 275px;
   max-width: 100%;
   max-height: 100%;
-`
+`;
 
 const BackgroundDiv = styled.div`
   display: flex;
@@ -23,7 +23,7 @@ const BackgroundDiv = styled.div`
   width: 992px;
   max-width: 75%;
   margin: auto;
-`
+`;
 
 class App extends React.Component {
   constructor(props) {
@@ -32,40 +32,38 @@ class App extends React.Component {
       properties: [],
       photos: [],
       MultiGalleryOpen: false,
-      selectedProperty: null
-    }
+      selectedProperty: null,
+    };
     this.toggleMultiGallery = this.toggleMultiGallery.bind(this);
     this.selectProperty = this.selectProperty.bind(this);
   }
 
   componentDidMount() {
     this.getProperties(() => {
-      this.setState({selectedProperty: this.state.properties[0]});
+      this.setState({ selectedProperty: this.state.properties[0] });
       this.getPhotos(this.state.selectedProperty.id);
     });
   }
 
   getProperties(callback) {
-    axios.get('/api/properties').then(response => {
-      console.log(response.data);
-      this.setState({properties: response.data});
+    axios.get('/api/properties').then((response) => {
+      this.setState({ properties: response.data });
       callback();
     });
   }
 
   getPhotos(propertyId) {
-    axios.get(`/api/photos/${propertyId}`).then(response => {
-      console.log(response.data);
-      this.setState({photos: response.data});
+    axios.get(`/api/photos/${propertyId}`).then((response) => {
+      this.setState({ photos: response.data });
     });
   }
 
   toggleMultiGallery() {
-    this.setState({MultiGalleryOpen: !this.state.MultiGalleryOpen});
+    this.setState({ MultiGalleryOpen: !this.state.MultiGalleryOpen });
   }
 
   selectProperty(property) {
-    this.setState({selectedProperty: property});
+    this.setState({ selectedProperty: property });
     this.getPhotos(this.state.selectedProperty.id);
   }
 
@@ -74,10 +72,11 @@ class App extends React.Component {
       return (
         <BackgroundDiv>
           <HomeGalleryDiv onClick={() => this.toggleMultiGallery()}>
-            <HomeGallery photos={this.state.photos}/>
+            <HomeGallery photos={this.state.photos} />
           </HomeGalleryDiv>
-          <HomeDetails details={this.state.selectedProperty}/>
-          <MultiGallery photos={this.state.photos}
+          <HomeDetails details={this.state.selectedProperty} />
+          <MultiGallery
+            photos={this.state.photos}
             multiGalleryOpen={this.state.MultiGalleryOpen}
             address={this.state.selectedProperty.address}
             cost={this.state.selectedProperty.cost}
@@ -87,11 +86,10 @@ class App extends React.Component {
           />
         </BackgroundDiv>
       );
-    } else {
-      return (
-        <div></div>
-      );
     }
+    return (
+      <div />
+    );
   }
 }
 

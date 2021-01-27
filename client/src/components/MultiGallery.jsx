@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Close } from '@styled-icons/ionicons-outline/'
+import { Close } from 'styled-icons/ionicons-outline/';
 
 // Build as modal
 // Property details at top:
@@ -23,7 +23,7 @@ const MultiGalleryContainer = styled.div`
   max-width: 1042px;
   height: calc(100% - 96px);
   will-change: transform;
-`
+`;
 
 const BackgroundDiv = styled.div`
   z-index: 3;
@@ -34,7 +34,7 @@ const BackgroundDiv = styled.div`
   right: 0;
   background: rgba(0,0,0,0.7);
   /* backdrop-filter: blur(10px); */
-`
+`;
 
 const MultiGalleryDiv = styled.div`
   height: 100%;
@@ -46,7 +46,7 @@ const MultiGalleryDiv = styled.div`
   display: flex;
   flex-direction: column;
   margin: 8px;
-`
+`;
 
 const Row1Div = styled.div`
   display: flex;
@@ -61,7 +61,7 @@ const Row1Div = styled.div`
     padding-bottom: 0px;
     margin-bottom: 0px;
   }
-`
+`;
 
 const Row2Div = styled.div`
   display: flex;
@@ -75,7 +75,7 @@ const Row2Div = styled.div`
     padding-bottom: 0px;
     margin-bottom: 0px;
   }
-`
+`;
 
 const Row3Div = styled.div`
   display: flex;
@@ -89,7 +89,7 @@ const Row3Div = styled.div`
     padding-bottom: 0px;
     margin-bottom: 0px;
   }
-`
+`;
 
 const HomeDetailsRow = styled.div`
   display: flex;
@@ -103,11 +103,11 @@ const HomeDetailsRow = styled.div`
   margin-left: 4px;
   margin-right: 4px;
   border-bottom: 1px solid rgb(205, 209, 212);
-`
+`;
 
 const DetailsText = styled.p`
   margin: 8px 8px;
-`
+`;
 
 const CostText = styled.p`
   margin: 8px;
@@ -119,7 +119,7 @@ const CostText = styled.p`
     content: "|";
     margin-left: 12px;
   }
-`
+`;
 
 const CloseButton = styled(Close)`
   color: rgb(59, 65, 68);
@@ -135,53 +135,56 @@ const CloseButton = styled(Close)`
   &:hover {
     color: rgb(0, 120, 130);
   }
-`
+`;
 
 const rowDivs = [
   Row1Div,
   Row2Div,
-  Row3Div
-]
+  Row3Div,
+];
 
 const MultiImage = styled.img`
   width: 100%;
   height: 100%;
   margin-left: ${(props) => {
-      if (props.total > 0) {
-        return '8px';
-      } else {
-        return '0px';
-      }
+    if (props.total > 0) {
+      return '8px';
     }
-  };
-`
-
-const MultiGallery = ({closeFunction, multiGalleryOpen, photos, address, cost, beds, baths}) => {
-  return (
-    multiGalleryOpen === true
-    ? <BackgroundDiv>
-      <MultiGalleryContainer>
-        <HomeDetailsRow>
-          <DetailsText>{address}</DetailsText>
-          <CostText> {cost} </CostText>
-          <DetailsText>{`${beds} Beds  ${baths} Baths`}</DetailsText>
-        </HomeDetailsRow>
-        <MultiGalleryDiv>
-          {
-            threeGroups(photos).map(row =>
-              buildRow(row)
-            )
-          }
-        </MultiGalleryDiv>
-        <CloseButton onClick={closeFunction}>X</CloseButton>
-      </MultiGalleryContainer>
-    </BackgroundDiv>
-    : null
-  );
+    return '0px';
+  }
 };
+`;
+
+const MultiGallery = ({
+  closeFunction, multiGalleryOpen, photos, address, cost, beds, baths,
+}) => (
+  multiGalleryOpen === true
+    ? (
+      <BackgroundDiv>
+        <MultiGalleryContainer>
+          <HomeDetailsRow>
+            <DetailsText>{address}</DetailsText>
+            <CostText>
+              {' '}
+              {cost}
+              {' '}
+            </CostText>
+            <DetailsText>{`${beds} Beds  ${baths} Baths`}</DetailsText>
+          </HomeDetailsRow>
+          <MultiGalleryDiv>
+            {
+              threeGroups(photos).map((row) => buildRow(row))
+            }
+          </MultiGalleryDiv>
+          <CloseButton onClick={closeFunction}>X</CloseButton>
+        </MultiGalleryContainer>
+      </BackgroundDiv>
+    )
+    : null
+);
 
 const threeGroups = (photos) => {
-  let grouped = [];
+  const grouped = [];
   let count;
   let lastCount;
   for (let i = 0; i < photos.length; i += count) {
@@ -189,7 +192,7 @@ const threeGroups = (photos) => {
     if (count === lastCount) {
       count = (count % 3) + 1;
     }
-    let group = photos.slice(i, i + count);
+    const group = photos.slice(i, i + count);
     grouped.push(group);
     lastCount = count;
   }
@@ -201,12 +204,9 @@ const buildRow = (photos) => {
   const Element = rowDivs[rowTotal];
   return (
     <Element>
-      {photos.map((photo, pos) =>
-        <MultiImage src={photo.link} pos={pos} total={rowTotal}></MultiImage>
-      )}
+      {photos.map((photo, pos) => <MultiImage src={photo.link} pos={pos} total={rowTotal} />)}
     </Element>
   );
 };
-
 
 export default MultiGallery;

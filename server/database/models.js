@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes, Deferrable } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const { db } = require('./index.js');
 
 const property = db.define('property', {
@@ -6,59 +6,59 @@ const property = db.define('property', {
     type: DataTypes.SMALLINT,
     allowNull: false,
     primaryKey: true,
-    autoIncrement: true
+    autoIncrement: true,
   },
   address: {
     type: DataTypes.TEXT,
-    allowNull: false
+    allowNull: false,
   },
   address2: {
-    type: DataTypes.TEXT
+    type: DataTypes.TEXT,
   },
   neighborhood: {
-    type: DataTypes.TEXT
+    type: DataTypes.TEXT,
   },
   neighborhood_url: {
-    type: DataTypes.TEXT
+    type: DataTypes.TEXT,
   },
   cost: {
-    type: DataTypes.TEXT
+    type: DataTypes.TEXT,
   },
   beds: {
     type: DataTypes.SMALLINT,
-    allowNull: false
+    allowNull: false,
   },
   baths: {
     type: DataTypes.SMALLINT,
-    allowNull: false
+    allowNull: false,
   },
   sqft: {
     type: DataTypes.TEXT,
-    allowNull: false
+    allowNull: false,
   },
   favorite: {
     type: DataTypes.BOOLEAN,
-    defaultValue: false
+    defaultValue: false,
   },
   petfriendly: {
     type: DataTypes.BOOLEAN,
-    defaultValue: false
+    defaultValue: false,
   },
   new: {
     type: DataTypes.BOOLEAN,
-    defaultValue: false
+    defaultValue: false,
   },
   new_construction: {
     type: DataTypes.BOOLEAN,
-    defaultValue: false
+    defaultValue: false,
   },
   furnished: {
     type: DataTypes.BOOLEAN,
-    defaultValue: false
-  }
+    defaultValue: false,
+  },
 }, {
   freezeTableName: true,
-  timestamps: false
+  timestamps: false,
 });
 
 const photo = db.define('photo', {
@@ -66,17 +66,8 @@ const photo = db.define('photo', {
     type: DataTypes.SMALLINT,
     allowNull: false,
     primaryKey: true,
-    autoIncrement: true
+    autoIncrement: true,
   },
-  // property_id: {
-  //   type: DataTypes.SMALLINT,
-  //   allowNull: false,
-  //   references: {
-  //     model: property,
-  //     key: 'id',
-  //     deferrable: Deferrable.NOT // Deferrable.NOT is Default option
-  //   }
-  // },
   filename: {
     type: DataTypes.TEXT,
   },
@@ -97,14 +88,14 @@ const photo = db.define('photo', {
   },
   floorplan: {
     type: DataTypes.BOOLEAN,
-  }
+  },
 }, {
   freezeTableName: true,
-  timestamps: false
+  timestamps: false,
 });
 
 property.photo = property.hasMany(photo, {
-  foreignKey: 'propertyId'
+  foreignKey: 'propertyId',
 });
 photo.property = photo.belongsTo(property);
 

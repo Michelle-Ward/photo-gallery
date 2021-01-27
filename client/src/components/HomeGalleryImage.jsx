@@ -5,12 +5,10 @@ const HomeGalleryHeroImage = styled.img`
   display: inline-block;
   max-width: 100%;
   max-height: 100%;
-`
+`;
 
-
-const HomeGalleryImage = (props) => (
-  <HomeGalleryHeroImage src={`${props.photo.link}`}></HomeGalleryHeroImage>
+const HomeGalleryImage = ({photo}) => (
+  <HomeGalleryHeroImage src={`${photo.link}`} />
 );
-
 
 export default HomeGalleryImage;
