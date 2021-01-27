@@ -1,18 +1,18 @@
-var { photo } = require('../models.js');
+const { photo } = require('../models.js');
 
 module.exports = {
   get: (req, res) => {
     photo.findAll({
       where: {
-        propertyId: req.params.propertyId
-      }
+        propertyId: req.params.propertyId,
+      },
     })
-      .then(photos => {
+      .then((photos) => {
         res.status(200).json(photos);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(`No records found for propertyId ${req.params.propertyId}: ${err}`);
         res.status(404).json(err);
       });
-  }
+  },
 };

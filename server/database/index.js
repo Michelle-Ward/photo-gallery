@@ -4,7 +4,7 @@ const { username, password } = require('./config.js');
 const db = new Sequelize('photo_gallery', username, password, {
   host: 'localhost',
   dialect: 'mysql',
-  logging: console.log
+  logging: console.log,
 });
 
 const testConnection = async () => {
@@ -20,11 +20,11 @@ const testConnection = async () => {
 
 const initializeDB = async () => {
   try {
-    let sync = await db.sync({ force: true });
+    const sync = await db.sync({ force: true });
     console.log('db sync syccessful.');
   } catch (err) {
-    console.log("Error with db sync:", err);
+    console.log('Error with db sync:', err);
   }
-}
+};
 
 module.exports = { db, testConnection, initializeDB };

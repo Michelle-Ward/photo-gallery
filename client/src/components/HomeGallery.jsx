@@ -1,7 +1,7 @@
 import React from 'react';
+import styled from 'styled-components';
 import HomeGalleryImage from './HomeGalleryImage.jsx';
 import HomeGalleryVertical from './HomeVerticalGallery.jsx';
-import styled from 'styled-components';
 
 const GalleryDiv = styled.div`
   display: flex;
@@ -24,15 +24,12 @@ const GalleryDiv = styled.div`
     transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
     transition-delay: 0s; */
   }
-`
+`;
 
-
-const HomeGallery = (props) => (
+const HomeGallery = ({photos}) => (
   <GalleryDiv>
-    {props.photos.slice(0,1).map(photo =>
-      <HomeGalleryImage photo={photo}/>
-    )}
-    <HomeGalleryVertical photos={props.photos.slice(1,3)}/>
+    {photos.slice(0, 1).map((photo) => <HomeGalleryImage photo={photo} />)}
+    <HomeGalleryVertical photos={photos.slice(1, 3)} />
   </GalleryDiv>
 );
 
