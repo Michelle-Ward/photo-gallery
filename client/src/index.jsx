@@ -32,21 +32,28 @@ class App extends React.Component {
       properties: [],
       photos: [],
       MultiGalleryOpen: false,
-      selectedProperty: null,
+      selectedProperty: 1,
     };
     this.toggleMultiGallery = this.toggleMultiGallery.bind(this);
     this.selectProperty = this.selectProperty.bind(this);
   }
 
   componentDidMount() {
-    this.getProperties(() => {
-      this.setState({ selectedProperty: this.state.properties[0] });
+    this.getProperty(this.state.selectedProperty, () => {
+      this.setState({ selectedProperty: this.state.properties });
       this.getPhotos(this.state.selectedProperty.id);
     });
   }
 
   getProperties(callback) {
     axios.get('/api/properties').then((response) => {
+      this.setState({ properties: response.data });
+      callback();
+    });
+  }
+
+  getProperty(propertyId, callback) {
+    axios.get(`/api/properties/${propertyId}`).then((response) => {
       this.setState({ properties: response.data });
       callback();
     });

@@ -28,7 +28,7 @@ const GalleryDiv = styled.div`
 
 const HomeGallery = ({photos}) => (
   <GalleryDiv>
-    {photos.slice(0, 1).map((photo) => <HomeGalleryImage photo={photo} />)}
+    {photos.slice(0, 1).map((photo) => <HomeGalleryImage key={photo.id} photo={photo} />)}
     <HomeGalleryVertical photos={photos.slice(1, 3)} />
   </GalleryDiv>
 );

@@ -8,7 +8,7 @@ const HomeGalleryHeroImage = styled.img`
 `;
 
 const HomeGalleryImage = ({photo}) => (
-  <HomeGalleryHeroImage src={`${photo.link}`} />
+  <HomeGalleryHeroImage key={photo.id} src={`${photo.link}`} />
 );
 
 export default HomeGalleryImage;

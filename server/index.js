@@ -11,6 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/api/properties', properties.get);
+app.get('/api/properties/:propertyId', properties.getOne);
 app.patch('/api/properties/:propertyId', properties.patch);
 app.get('/api/photos/:propertyId', photos.get);
 
