@@ -67,7 +67,7 @@ const DetailsBigText = styled.p`
 const HomeDetails = ({ details }) => (
   <HomeDetailsContainer>
     <HomeDetailsRow>
-      {largeFields.map((field) => <DetailsBigText>{details[field]}</DetailsBigText>)}
+      {largeFields.map((field) => <DetailsBigText key={field}>{details[field]}</DetailsBigText>)}
     </HomeDetailsRow>
     <HomeDetailsRow>
       <DetailsText>{details.address2}</DetailsText>

@@ -11,27 +11,23 @@ const VerticalGalleryDiv = styled.div`
 `;
 
 const VertImageUpper = styled.img`
-  display: inline-block;
-  max-width: auto;
-  max-height: 50%;
+  height: 50%;
   object-fit: cover;
   padding-bottom: 4px;
   /* margin: 8px; */
 `;
 
 const VertImageLower = styled.img`
-  display: inline-block;
-  max-width: auto;
-  max-height: 50%;
+  height: 50%;
   object-fit: cover;
   padding-top: 4px;
   /* margin: 8px; */
 `;
 
-const HomeGalleryVertical = (props) => (
+const HomeGalleryVertical = ({photos}) => (
   <VerticalGalleryDiv>
-    <VertImageUpper src={`${props.photos[0].link}`} />
-    <VertImageLower src={`${props.photos[1].link}`} />
+    <VertImageUpper key={photos[0].id} src={`${photos[0].link}`} />
+    <VertImageLower key={photos[1].id} src={`${photos[1].link}`} />
   </VerticalGalleryDiv>
 );
 

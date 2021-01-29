@@ -52,14 +52,13 @@ const buildProperty = () => {
   return property;
 };
 
-const buildPhotoList = (apartment, photos = 1) => {
+const buildPhotoList = (index, photos = 1) => {
   const photoList = [];
-  let type;
-  apartment === true ? type = 'apartment' : type = 'house';
   for (let i = 1; i <= photos; i++) {
-    const link = `https://abphotos.s3-us-west-2.amazonaws.com/AXlia/image${i}.jpg`;
+    const link = `https://abphotos.s3-us-west-2.amazonaws.com/AXlia/image${index}_${i < 10 ? `0${i}` : i}.jpg`;
     const format = link.substring(link.lastIndexOf('.') + 1, link.length);
-    photoList.push({ link, format });
+    const floorplan = index === 2 && i === 14 ? true : null;
+    photoList.push({ link, format, floorplan });
   }
   return photoList;
 };

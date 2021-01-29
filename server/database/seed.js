@@ -2,11 +2,19 @@ const { buildProperty, buildPhotoList } = require('./dataFaker.js');
 const { db, initializeDB } = require('./index.js');
 const { property, photo } = require('./models.js');
 
+const maxPhotos = {
+  1: 65,
+  2: 34,
+  3: 70,
+  4: 26,
+};
+
 const generateData = () => {
   const data = [];
   for (let i = 0; i < 100; i++) {
     const propertyEntry = buildProperty();
-    propertyEntry.photos = buildPhotoList(propertyEntry.apartment, photos = 34);
+    const index = (i % 4) + 1;
+    propertyEntry.photos = buildPhotoList(index, maxPhotos[index]);
     data.push(propertyEntry);
   }
   return data;

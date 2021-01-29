@@ -53,7 +53,7 @@ const Row1Div = styled.div`
   flex-direction: row;
   justify-content: center;
   /* flex: 1 1 0; */
-  height: 100%;
+  height: auto;
   width: 100%;
   object-fit: contain;
   padding: 0 8px 8px 8px;
@@ -145,7 +145,7 @@ const rowDivs = [
 
 const MultiImage = styled.img`
   width: 100%;
-  height: 100%;
+  height: auto;
   margin-left: ${(props) => {
     if (props.total > 0) {
       return '8px';
