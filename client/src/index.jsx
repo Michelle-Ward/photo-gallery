@@ -32,16 +32,14 @@ class App extends React.Component {
       properties: [],
       photos: [],
       MultiGalleryOpen: false,
-      selectedProperty: 1,
     };
     this.toggleMultiGallery = this.toggleMultiGallery.bind(this);
     this.selectProperty = this.selectProperty.bind(this);
   }
 
   componentDidMount() {
-    this.getProperty(this.state.selectedProperty, () => {
-      this.setState({ selectedProperty: this.state.properties });
-      this.getPhotos(this.state.selectedProperty.id);
+    this.getProperty(() => {
+      this.getPhotos();
     });
   }
 
@@ -52,15 +50,17 @@ class App extends React.Component {
     });
   }
 
-  getProperty(propertyId, callback) {
-    axios.get(`/api/properties/${propertyId}`).then((response) => {
+  getProperty(callback) {
+    let propertyId = window.location.pathname;
+    axios.get(`/api/properties${propertyId}`).then((response) => {
       this.setState({ properties: response.data });
       callback();
     });
   }
 
-  getPhotos(propertyId) {
-    axios.get(`/api/photos/${propertyId}`).then((response) => {
+  getPhotos() {
+    let propertyId = window.location.pathname;
+    axios.get(`/api/photos${propertyId}`).then((response) => {
       this.setState({ photos: response.data });
     });
   }
@@ -81,14 +81,14 @@ class App extends React.Component {
           <HomeGalleryDiv onClick={() => this.toggleMultiGallery()}>
             <HomeGallery photos={this.state.photos} />
           </HomeGalleryDiv>
-          <HomeDetails details={this.state.selectedProperty} />
+          <HomeDetails details={this.state.properties} />
           <MultiGallery
             photos={this.state.photos}
             multiGalleryOpen={this.state.MultiGalleryOpen}
-            address={this.state.selectedProperty.address}
-            cost={this.state.selectedProperty.cost}
-            beds={this.state.selectedProperty.beds}
-            baths={this.state.selectedProperty.baths}
+            address={this.state.properties.address}
+            cost={this.state.properties.cost}
+            beds={this.state.properties.beds}
+            baths={this.state.properties.baths}
             closeFunction={() => this.toggleMultiGallery()}
           />
         </BackgroundDiv>

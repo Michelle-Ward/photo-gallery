@@ -5,7 +5,7 @@ const { property, photo } = require('./models.js');
 const maxPhotos = {
   1: 65,
   2: 34,
-  3: 40,
+  3: 70,
   4: 26,
 };
 
