@@ -1,4 +1,4 @@
-const { buildProperty, buildPhotoList } = require('./dataFaker.js');
+const { buildProperty, buildPhotoList } = require('./datafaker.js');
 const { db, initializeDB } = require('./index.js');
 const { property, photo } = require('./models.js');
 
@@ -8,6 +8,7 @@ const maxPhotos = {
   3: 70,
   4: 26,
 };
+
 
 const generateData = () => {
   const data = [];
